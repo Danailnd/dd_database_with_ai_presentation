@@ -1,4 +1,5 @@
 # app.py
+import mysql
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from model import generate_response
