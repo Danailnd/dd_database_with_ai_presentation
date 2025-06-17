@@ -5,13 +5,13 @@ from flask_cors import CORS
 from model import generate_response
 
 app = Flask(__name__)
-CORS(app)  # Allow frontend to access the API
+CORS(app)
 
 # Database connection config
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "",  # use your actual password if you set one
+    "password": "",
     "database": "presentation"  # change to your DB name
 }
 
@@ -20,7 +20,7 @@ db_config = {
 def get_training_data():
     try:
         conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor(dictionary=True)  # dictionary=True returns rows as dicts
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT prompt, response FROM training_data")
         rows = cursor.fetchall()
         cursor.close()
